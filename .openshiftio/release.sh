@@ -6,6 +6,11 @@ NC='\033[0m' # No Color
 YELLOW='\033[0;33m'
 BLUE='\033[0;34m'
 
+if [ ! -d ".openshiftio" ]; then
+  echo -e "${RED} The script expects the .openshiftio directory to exist ${NC}"
+  exit 1
+fi
+
 if ((`git status -sb | wc -l` != 1)); then
     echo -e "${RED} You have uncommitted changes, please check (and stash) these changes before running this script ${NC}"
     exit 1

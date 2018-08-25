@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-set -e -x
+set -e
 
 source .openshiftio/openshift.sh
+
+if [ ! -d ".openshiftio" ]; then
+  warning "The script expects the .openshiftio directory to exist"
+  exit 1
+fi
 
 # Deploy the templates and required resources
 oc apply -f .openshiftio/application.yaml
