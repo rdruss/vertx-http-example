@@ -85,5 +85,3 @@ git push $GIT_REMOTE $GIT_BRANCH --tags
 
 echo -e "DONE !"
 rm *.log pom.xml.versionsBackup
-touch ../last-releases.txt
-echo "${PWD} => ${TAG}" >> ../last-releases.txt
