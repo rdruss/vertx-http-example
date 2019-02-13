@@ -17,8 +17,6 @@ import static org.hamcrest.core.IsEqual.equalTo;
 @RunWith(Arquillian.class)
 public class OpenShiftIT {
 
-    private final String applicationName = System.getProperty("app.name", "http-vertx");
-
     @RouteURL("${app.name}")
     @AwaitRoute
     private URL route;

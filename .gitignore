@@ -127,3 +127,7 @@ dist/
 nbdist/
 nbactions.xml
 .nb-gradle/
+
+# some addition ignores needed - need to understand why
+*.iml
+.idea
