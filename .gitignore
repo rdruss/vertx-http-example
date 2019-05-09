@@ -131,3 +131,6 @@ nbactions.xml
 # some addition ignores needed - need to understand why
 *.iml
 .idea
+
+# VS Code
+settings.json
