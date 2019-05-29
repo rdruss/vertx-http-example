@@ -11,10 +11,10 @@
   <description>Exposes an HTTP API using Vert.x</description>
 
   <properties>
-    <vertx.version>3.7.0</vertx.version>
+    <vertx.version>3.7.1</vertx.version>
     <vertx-maven-plugin.version>1.0.18</vertx-maven-plugin.version>
     <vertx.verticle>io.openshift.booster.HttpApplication</vertx.verticle>
-    <fabric8-maven-plugin.version>3.5.42</fabric8-maven-plugin.version>
+    <fabric8-maven-plugin.version>4.1.0</fabric8-maven-plugin.version>
     <arquillian-cube.version>1.18.2</arquillian-cube.version>
 
     <fabric8.generator.from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:1.5</fabric8.generator.from>
@@ -86,7 +86,7 @@
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
-      <version>3.3.0</version>
+      <version>4.0.0</version>
       <scope>test</scope>
     </dependency>
 
