@@ -1,8 +1,10 @@
 package io.openshift.example;
 
-import com.jayway.restassured.RestAssured;
-import java.net.MalformedURLException;
+import static io.openshift.example.HttpApplication.template;
+import static org.hamcrest.core.IsEqual.equalTo;
+
 import java.net.URL;
+
 import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
 import org.arquillian.cube.openshift.impl.enricher.RouteURL;
 import org.jboss.arquillian.junit.Arquillian;
@@ -10,15 +12,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static com.jayway.restassured.RestAssured.get;
-import static io.openshift.example.HttpApplication.template;
-import static org.hamcrest.core.IsEqual.equalTo;
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.get;
 
 @RunWith(Arquillian.class)
 public class OpenShiftIT {
 
     @RouteURL("${app.name}")
-    @AwaitRoute
+    @AwaitRoute(path = "/api/greeting", repetitions = 10)
     private URL route;
 
     @Before
@@ -27,14 +28,14 @@ public class OpenShiftIT {
     }
 
     @Test
-    public void testThatWeAreReady() throws Exception {
+    public void testThatWeAreReady() {
         // Check that the route is served.
         get().then().statusCode(equalTo(200));
         get("/api/greeting").then().statusCode(equalTo(200));
     }
 
     @Test
-    public void testThatWeServeAsExpected() throws MalformedURLException {
+    public void testThatWeServeAsExpected() {
         get("/api/greeting").then().body("content", equalTo(String.format(template, "World")));
         get("/api/greeting?name=vert.x").then().body("content", equalTo(String.format(template, "vert.x")));
     }
