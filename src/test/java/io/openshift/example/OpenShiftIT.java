@@ -1,6 +1,10 @@
-package io.openshift.booster;
+package io.openshift.example;
 
-import io.restassured.RestAssured;
+import static io.openshift.example.HttpApplication.template;
+import static org.hamcrest.core.IsEqual.equalTo;
+
+import java.net.URL;
+
 import org.arquillian.cube.openshift.impl.enricher.AwaitRoute;
 import org.arquillian.cube.openshift.impl.enricher.RouteURL;
 import org.jboss.arquillian.junit.Arquillian;
@@ -8,11 +12,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.net.URL;
-
-import static io.openshift.booster.HttpApplication.template;
+import io.restassured.RestAssured;
 import static io.restassured.RestAssured.get;
-import static org.hamcrest.core.IsEqual.equalTo;
 
 @RunWith(Arquillian.class)
 public class OpenShiftIT {
