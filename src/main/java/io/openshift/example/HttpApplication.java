@@ -1,7 +1,7 @@
 package io.openshift.example;
 
 import io.vertx.core.AbstractVerticle;
-import io.vertx.core.Future;
+import io.vertx.core.Promise;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
@@ -14,7 +14,7 @@ public class HttpApplication extends AbstractVerticle {
   protected static final String template = "Hello, %s!";
 
   @Override
-  public void start(Future<Void> future) {
+  public void start(Promise<Void> promise) {
     // Create a router object.
     Router router = Router.router(vertx);
 
@@ -31,7 +31,7 @@ public class HttpApplication extends AbstractVerticle {
               if (ar.succeeded()) {
                 System.out.println("Server started on port " + ar.result().actualPort());
               }
-              future.handle(ar.mapEmpty());
+                promise.handle(ar.mapEmpty());
             });
 
   }
