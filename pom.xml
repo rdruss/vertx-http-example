@@ -17,7 +17,7 @@
     <fabric8-maven-plugin.version>4.4.1</fabric8-maven-plugin.version>
     <arquillian-cube.version>1.18.2</arquillian-cube.version>
 
-    <fabric8.generator.from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift</fabric8.generator.from>
+    <fabric8.generator.from>registry.access.redhat.com/ubi8/openjdk-11</fabric8.generator.from>
 
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -78,12 +78,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.jayway.restassured</groupId>
-      <artifactId>rest-assured</artifactId>
-      <version>2.9.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <version>4.3.0</version>
@@ -141,6 +135,7 @@
           <includeOnlyProperties>
             <includeOnlyProperty>^git.remote.origin.url$</includeOnlyProperty>
           </includeOnlyProperties>
+          <failOnNoGitDirectory>false</failOnNoGitDirectory>
         </configuration>
       </plugin>
     </plugins>
